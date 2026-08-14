@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:;" />
+  <title>Stream Browser</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app" class="app">
+    <aside class="side-tabs" id="sideTabs" hidden>
+      <div class="side-head">
+        <span>Sekmeler</span>
+        <button class="icon-btn small" id="btnNewTabSide" title="Yeni sekme">+</button>
+      </div>
+      <div class="side-groups" id="sideGroups"></div>
+      <div class="tabs vertical" id="tabsSide" role="tablist"></div>
+    </aside>
+
+    <div class="main-col">
+      <header class="chrome" id="chrome">
+        <div class="tabstrip" id="tabstrip">
+          <div class="tabs horizontal" id="tabsTop" role="tablist"></div>
+          <button class="icon-btn new-tab" id="btnNewTab" title="Yeni sekme (Ctrl+T)">+</button>
+        </div>
+
+        <div class="toolbar">
+          <button class="icon-btn" id="btnBack" title="Geri" disabled>‹</button>
+          <button class="icon-btn" id="btnForward" title="İleri" disabled>›</button>
+          <button class="icon-btn" id="btnReload" title="Yenile">↻</button>
+          <button class="icon-btn" id="btnHome" title="Yeni sekme">⌂</button>
+
+          <form class="omnibox" id="navForm" autocomplete="off">
+            <input
+              id="urlBar"
+              type="text"
+              spellcheck="false"
+              autocomplete="off"
+              placeholder="URL veya arama…"
+            />
+          </form>
+
+          <button class="icon-btn" id="btnMobile" title="Mobil site">📱</button>
+          <button class="icon-btn" id="btnFav" title="Favorilere ekle">★</button>
+          <button class="icon-btn" id="btnFavPanel" title="Favoriler">☰</button>
+          <button class="icon-btn" id="btnPinWin" title="Her zaman üstte">📌</button>
+          <button class="icon-btn" id="btnPanic" title="Gizle / göster (panic)">👁</button>
+          <button class="icon-btn" id="btnSettings" title="Ayarlar">⚙</button>
+        </div>
+      </header>
+    </div>
+  </div>
+
+  <aside class="favorites" id="favPanel" hidden>
+    <div class="fav-head">
+      <span>Favoriler</span>
+      <button class="icon-btn small" id="btnCloseFav" title="Kapat">×</button>
+    </div>
+    <ul id="favList"></ul>
+  </aside>
+
+  <aside class="settings" id="settingsPanel" hidden>
+    <div class="fav-head">
+      <span>Ayarlar</span>
+      <button class="icon-btn small" id="btnCloseSettings" title="Kapat">×</button>
+    </div>
+    <div class="settings-body" id="settingsBody"></div>
+    <p class="fav-hint">Özellikler kapalıyken yük getirmez. Panic tuşu: Ctrl+Shift+Space (değiştirilebilir).</p>
+  </aside>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

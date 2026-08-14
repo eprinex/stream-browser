@@ -1,0 +1,67 @@
+{
+  "name": "stream-browser",
+  "version": "1.2.2",
+  "description": "Hızlı yayın tarayıcısı",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --enable-logging",
+    "pack": "electron-builder --win dir",
+    "dist": "electron-builder --win nsis portable"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^39.2.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.streambrowser.app",
+    "productName": "Stream Browser",
+    "copyright": "Copyright © Stream Browser",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "view-preload.js",
+      "chromeIdentity.js",
+      "blocker.js",
+      "settings.js",
+      "cbVideoOnly.js",
+      "tray-icon.png",
+      "ui/**/*",
+      "package.json"
+    ],
+    "win": {
+      "signAndEditExecutable": false,
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Stream Browser",
+      "uninstallDisplayName": "Stream Browser"
+    },
+    "portable": {
+      "artifactName": "StreamBrowser-Portable.exe"
+    }
+  }
+}

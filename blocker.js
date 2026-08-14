@@ -1,0 +1,65 @@
+/** Reklam / tracker hostları — yayın CDN'lerine dokunulmaz. */
+const BLOCKED_HOSTS = new Set([
+  'doubleclick.net',
+  'googleadservices.com',
+  'googlesyndication.com',
+  'google-analytics.com',
+  'googletagmanager.com',
+  'googletagservices.com',
+  'adservice.google.com',
+  'pagead2.googlesyndication.com',
+  'ads.yahoo.com',
+  'advertising.com',
+  'adnxs.com',
+  'adsrvr.org',
+  'adsafeprotected.com',
+  'moatads.com',
+  'scorecardresearch.com',
+  'quantserve.com',
+  'outbrain.com',
+  'taboola.com',
+  'criteo.com',
+  'hotjar.com',
+  'exoclick.com',
+  'juicyads.com',
+  'trafficjunky.net',
+  'trafficjunky.com',
+  'adsterra.com',
+  'popads.net',
+  'popcash.net',
+  'propellerads.com',
+  'propellerclick.com',
+  'tsyndicate.com',
+  'hilltopads.com',
+  'clickadu.com',
+  'adcash.com',
+  'ero-advertising.com',
+  'plugrush.com',
+  'trafficstars.com',
+]);
+
+/** Chaturbate / canlı yayın CDN — asla engellenmez, hızlı geçiş. */
+const MEDIA_ALLOW = [
+  'chaturbate.com',
+  'highwebmedia.com',
+  'mmcdn.com',
+  'live.mmcdn.com',
+  'roomimg.stream.highwebmedia.com',
+  'cbwebcam.com',
+  'amazonaws.com',
+  'cloudfront.net',
+  'livecentercdn.com',
+];
+
+const BLOCKED_PATTERNS = [
+  /doubleclick/i,
+  /googlesyndication/i,
+  /pagead2?\./i,
+  /\/popunder/i,
+  /popads/i,
+  /exoclick/i,
+  /juicyads/i,
+  /trafficjunky/i,
+];
+
+module.exports = { BLOCKED_HOSTS, BLOCKED_PATTERNS, MEDIA_ALLOW };
